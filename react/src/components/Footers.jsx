@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import {Footer} from 'react-bootstrap'
 
-class Footer extends Component {
+class Footers extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -21,4 +22,4 @@ class Footer extends Component {
     );
   }
 }
-export default Footer;
+export default Footers;

@@ -56,6 +56,7 @@ class LoginPage extends Component {
             this.setState({ loginres: res.data });
             if (this.state.loginres === 'Login successfull') {
               this.props.history.push(`/homepage-engineer/${this.state.id}`);
+              sessionStorage.setItem('id',this.state.id);
             } else {
               alert(this.state.loginres);
               window.location.reload(false);
@@ -67,6 +68,7 @@ class LoginPage extends Component {
           LoginService.loginUser(this.state.id, this.state.password, 3).then((res) => {
             this.setState({ loginres: res.data });
             if (this.state.loginres === 'Login successfull') {
+              sessionStorage.setItem('id',this.state.id);
               console.log(this.state.loginres);
               this.props.history.push(`/homepage-admin/${this.state.id}`);
             } else {

@@ -50,6 +50,7 @@ class HomePageAdmin extends Component {
     AdminService.changeEngineer(complaintId).then((res) =>{
       alert("Engineer replaced Successfully");
     })
+    window.location.reload(false)
   }
 
   logout = (e) => {
@@ -64,45 +65,50 @@ class HomePageAdmin extends Component {
         <div className="row pt-3">
           <div className="col-4 ml-2">
             <CardDeck>
-              <Card>
+              <Card border="danger"  >
                 <Card.Body>
                   <Card.Title className="text-center">
-                    Total Complaints<p className="mt-2" style={{fontSize:65, color: 'red'}}>{this.state.complaints.length}</p>
+                  <p  style={{fontSize:18, color: ' black', fontWeight: 'bold'}}>Total Complaints</p><p className="mt-2" style={{fontSize:65, color: 'red'}}>{this.state.complaints.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
-              <Card>
+              <Card border="warning"  >
                 <Card.Body>
                   <Card.Title className="text-center">
-                    Open Complaints<p className="mt-2" style={{fontSize:65, color: 'yellow'}}>{this.state.openc.length}</p>
+                  <p  style={{fontSize:18, color: ' black', fontWeight: 'bold'}}>Open Complaints</p><p className="mt-2" style={{fontSize:65, color: 'yellow'}}>{this.state.openc.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
             </CardDeck>
             <br />
             <CardDeck>
-              <Card>
+              <Card border="success"  >
                 <Card.Body>
                   <Card.Title className="text-center">
-                    Closed Complaints<p className="mt-2" style={{fontSize:65, color: 'green'}}>{this.state.complaints.length-this.state.openc.length}</p>
+                  <p  style={{fontSize:18, color: ' black', fontWeight: 'bold'}}>Closed Complaints</p><p className="mt-2" style={{fontSize:65, color: 'green'}}>{this.state.complaints.length-this.state.openc.length}</p>
                     </Card.Title>
                 </Card.Body>
               </Card>
-              <Card>
+              <Card border="primary"  >
                 <Card.Body>
                   <Card.Title className="text-center">
-                     Total <br/>Products <p className="mt-2" style={{fontSize:65, color: 'blue'}}>{this.state.prods.length}</p>
+                  <p  style={{fontSize:18, color: ' black', fontWeight: 'bold'}}>Total Products</p> <p className="mt-2" style={{fontSize:65, color: 'blue'}}>{this.state.prods.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
             </CardDeck>
           </div>
-          <div className="col mx-3">
+          <div className="col-7 ml-5">
             <CardDeck>
-              <button className="btn btn-info" href="/addEngineer" ><Card style={{fontSize:25}} className="bg-info border-0">
-                  Add Engineer
-              </Card></button>
-              <Card>
+              <a href="/addEngineer"><button className="btn btn-info ml-5 mr-5"><Card className="bg-info px-auto border-0">
+              <Card.Body><Card.Title>
+              <p  style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>Manage Engineers</p></Card.Title></Card.Body>
+              </Card></button></a>
+              <a href="/addProduct"><button className="btn btn-info ml-5"><Card className="bg-info px-auto  border-0">
+              <Card.Body><Card.Title>
+              <p  style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>Manage Products</p></Card.Title></Card.Body>
+              </Card></button></a>
+               {/* <Card >
                 <Card.Body>
                   <Card.Title>Card title</Card.Title>
                   <Card.Text>Card Text Here</Card.Text>
@@ -120,15 +126,15 @@ class HomePageAdmin extends Component {
                   <Card.Title> Total Products </Card.Title>
                   <Card.Text></Card.Text>
                 </Card.Body>
-              </Card>
+              </Card> */}
             </CardDeck>
           </div>
         </div>
-        <div className="row mx-2 mt-3">
-          <div className="container-fluid bg-dark my-3">
-            <h2 className="text-white text-center">Complaints Registered</h2>
+        <div className="row mt-3">
+          <div className="container-fluid bg-info my-3">
+            <h2 className="text- black text-center">Complaints Registered</h2>
           </div>
-          <table className="table table-hover table-dark table-bordered mx-4">
+          <table className="table table-hover table-dark table-bordered mx-3">
               <thead>
                 <tr>
                   <th>complaint_id</th>

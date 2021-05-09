@@ -22,6 +22,9 @@ class AdminService {
     changeEngineer(complaintId){
         return axios.put(BASE_URL+"replaceEngineerFromComplaint/"+complaintId)
     }
+    addEngineer(engineer){
+        return axios.post(BASE_URL+"addEngineer",engineer)
+    }
 }
 
 export default new AdminService();
