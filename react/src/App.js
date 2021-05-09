@@ -18,7 +18,7 @@ import GetComplaintsByProduct from './components/GetComplaintsByProduct';
 function App() {
   return (
     <BrowserRouter>
-    <Header/>
+
     <div>
       <Switch>
         <Route path="/" exact component={LoginPage}></Route>
