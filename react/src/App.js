@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import NotFound from './components/NotFound';
 import LoginPage from "./components/LoginPage";
-import Footer from './components/Footer';
+import Footers from './components/Footers';
 import HomePageClient from './components/HomePageClient.jsx';
 import BookComplaint from './components/BookComplaint';
 import HomePageAdmin from './components/HomePageAdmin';
@@ -15,6 +15,10 @@ import ViewEngineerProfile from './components/ViewEngineerProfile';
 import ViewAdminProfile from './components/ViewAdminProfile';
 import UpdateClient from './components/UpdateClient';
 import GetComplaintsByProduct from './components/GetComplaintsByProduct';
+import AddEngineer from './components/AddEngineer';
+import RegisterClient from './components/RegisterClient';
+import AddProduct from './components/AddProduct';
+import GetComplaintsByDate from './components/GetComplaintsByDate';
 function App() {
   return (
     <BrowserRouter>
@@ -33,11 +37,14 @@ function App() {
         <Route path="/admin-profile" component={ViewAdminProfile}></Route>
         <Route path="/client-update" component={UpdateClient}></Route>
         <Route path="/complaint_by_product" component={GetComplaintsByProduct}></Route>
-        <Route path="/addEngineer" component={GetComplaintsByProduct}></Route>
+        <Route path="/addEngineer" component={AddEngineer}></Route>
+        <Route path="/registerClient" component={RegisterClient}></Route>
+        <Route path="/addProduct" component={AddProduct}></Route>
+        <Route path="/productsByDate" component={GetComplaintsByDate}></Route>
         <Route component={NotFound} />
       </Switch>
       </div>
-      <Footer/>
+      <Footers/>
     </BrowserRouter>
   );
 }

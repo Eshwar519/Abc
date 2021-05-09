@@ -19,7 +19,7 @@ class BookComplaint extends Component {
       products: [],
       complaintName: "",
       status: "Open",
-      client: { clientId: this.props.match.params.id },
+      client: { clientId: sessionStorage.getItem('id') },
       product: { modelNumber: "" },
       productName: "",
     };
@@ -82,7 +82,7 @@ class BookComplaint extends Component {
         <Navigation/>
         <p className="pt-3"></p>
         <div
-          className="card col-md-6 mx-auto my-5 pt-3 bg-dark text-white"
+          className="card col-md-6 mx-auto  mt-5 bg-dark text-white"
           border="warning"
           style={{ opacity: 0.7, fontWeight: "bold", fontSize: 18 }}
         >
@@ -91,21 +91,22 @@ class BookComplaint extends Component {
           </h1>
 
             <form
-              onSubmit={this.bookComplaint}
-              className="form-group card-body"
-            >
-              <div className=" row my-3 g-2 pt-2 justify-content-center">
-                <div className="col-5">
+              onSubmit={this.bookComplaint}>
+              <div className="form-group pt-3">
+              <div className="row py-1 justify-content-center">
+                <div className="col-4">
                   <label htmlFor="prod_cat" className="form-label text-start">
                     Product Category
                   </label>
                 </div>
-                <div className="col-5">
+                <div className="col-6">
                   <select
-                    className="form-select  mb-3"
-                    id="prod_cat"
-                    aria-label=".form-select-lg example"
+                     placeholder="Select Product Category"
+                     name="prod_cat"
+                     className="form-control"
+                     title="Enter Product Category"
                     onChange={this.productCategoryHandler}
+                    required
                   >
                     <option selected>
                       {" "}
@@ -121,17 +122,18 @@ class BookComplaint extends Component {
                 </div>
               </div>
 
-              <div className="row my-3 g-2 justify-content-center">
-                <div className="col-5">
+              <div className="row py-1 my-3 g-2 justify-content-center">
+                <div className="col-4">
                   <label htmlFor="ProdName" className="form-label text-start">
                     Product Name
                   </label>
                 </div>
-                <div className="col-5">
+                <div className="col-6">
                   <select
-                    class="form-select  mb-3"
-                    id="prodName"
-                    aria-label=".form-select-lg example"
+                    placeholder="Select Product Category"
+                    name="product category"
+                    className="form-control"
+                    title="Enter Product Category"
                     onChange={this.productNameHandler}
                     required
                   >
@@ -149,13 +151,13 @@ class BookComplaint extends Component {
                 </div>
               </div>
 
-              <div className="row my-3 g-2 justify-content-center">
-                <div className="col-5">
+              <div className="row py-1 my-3 g-2 justify-content-center">
+                <div className="col-4">
                   <label htmlFor="ProdIssue" className="form-label text-end">
                     Problem Description
                   </label>
                 </div>
-                <div className="col-5">
+                <div className="col-6">
                   <input
                     id="ProdIssue"
                     type="text"
@@ -168,14 +170,15 @@ class BookComplaint extends Component {
                   />
                 </div>
               </div>
-
-            <div className="row my-3 pt-5 justify-content-center">
-              <div className="col-11">
+              </div>
+            <div className="row pb-3 pt-3 justify-content-center">
+              <div className="col-10">
               <button className="btn btn-info btn-block " type="submit">
                 Book Complaint
               </button>
               </div>
             </div>
+              
           </form>
         </div>
         </div>
