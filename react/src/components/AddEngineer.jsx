@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AdminService from "../services/AdminService";
 import Navigation from "./Navigation";
-import { Card} from "react-bootstrap"
+import { Card,Form,Col} from "react-bootstrap"
 
 class AddEngineer extends Component {
   constructor(props) {
@@ -24,7 +24,6 @@ class AddEngineer extends Component {
     console.log(engineer);
 
     AdminService.addEngineer(engineer).then((res) => {
-      console.log(res);
       this.setState({ updatestatus: res.data });
       if (this.state.updatestatus === true) {
         alert("Engineer added succesfully");
@@ -49,7 +48,26 @@ class AddEngineer extends Component {
   };
   engineerDomainHandler =(event) =>{
     event.preventDefault()
-    
+    this.setState({
+      domain1: event.target.value
+    })
+    AdminService.getEngineerByDomain(event.target.value).then((res)=>{
+      this.setState({
+        engineers:res.data
+      })
+    })
+  }
+  newDomainHandler=(event)=>{
+    event.preventDefault()
+    this.setState({
+      newDomain: event.target.value
+    })
+  }
+  newDomainButtonHandler(employeeId){
+    console.log(employeeId)
+    AdminService.changeEngineerDomain(employeeId,this.state.newDomain).then((res)=>{
+      alert("Engineer Domain Changed to "+this.state.newDomain + " Successfully")
+    })
   }
 
   render() {
@@ -99,7 +117,7 @@ class AddEngineer extends Component {
                       className="form-control"
                       title="enter engineer domain"
                       value={this.state.domain}
-                      onChange={this.engineerDomainHandler}
+                      onChange={this.changeDomainHandler}
                       required
                     >
                       <option value=" " selected>Select Domain</option>
@@ -137,11 +155,11 @@ class AddEngineer extends Component {
                     <label className="font-weight-bold"> Filter Engineers By Domain: </label>
                     <select
                       placeholder="Domain"
-                      name="domain"
+                      name="engineerDomain"
                       className="form-control"
                       title="enter engineer domain"
-                      value={this.state.domain}
-                      onChange={this.changeDomainHandler}
+                      value={this.state.domain1}
+                      onChange={this.engineerDomainHandler}
                       required
                     >
                       <option value=" " selected>Select Domain</option>
@@ -157,44 +175,38 @@ class AddEngineer extends Component {
           <table className="table table-hover table-dark">
               <thead>
                 <tr>
-                  <th>complaint_id</th>
-                  <th>Complaintname</th>
-                  <th>Status</th>
-                  <th>Engineerid</th>
-                  <th>Clientid</th>
-                  <th>Model number</th>
-                  <th>Change Status</th>
+                  <th>Employee ID</th>
+                  <th>Domain</th>
+                  <th>Name</th>
+                  <th>Change Domain</th>
                 </tr>
               </thead>
               <tbody>
                 {this.state.engineers.map((engineer) => (
-                  <tr key={engineer.complaintId}>
-                    <td> {engineer.complaintId} </td>
-                    <td> {engineer.complaintName}</td>
-                    <td> {engineer.status} </td>
-                    <td> {engineer.engineerId}</td>
-                    <td> {engineer.clientId}</td>
-                    <td> {engineer.modelNumber}</td>
-                    <td>
-                      {engineer.status === "Open" ? (
-                        <button
-                          className="btn btn-danger px-3"
-                          onClick={() => this.buttonHandler(engineer.complaintId)}
-                          type="submit"
+                  <tr key={engineer.employeeId}>
+                    <td>{engineer.employeeId}</td>
+                    <td> {engineer.domain} </td>
+                    <td> {engineer.engineerName}</td>
+                    <td>  
+                      <Form.Row>   
+                        <Col xs={9}>                                                 
+                        <Form.Control as="select"
+                          placeholder="Domain"
+                          name="engineerNewDomain"
+                          className="form-control"
+                          title="enter engineer domain"
+                          onChange={this.newDomainHandler}
                         >
-                          {" "}
-                          &nbsp;Replace Engineer{" "}
-                        </button>
-                      ) : (
-                        <button
-                          className="btn btn-outline-secondary"
-                          onClick={() => this.buttonHandler(engineer.complaintId)}
-                          type="submit"
-                          disabled
-                        >
-                          Complaint Closed
-                        </button>
-                      )}
+                          <option value=" " selected>Select New Domain</option>
+                          <option value="AC">AC</option>
+                          <option value="Cooler">Cooler</option>
+                          <option value="FAN">FAN</option>
+                          <option value="Fridge">Fridge</option>
+                          <option value="Laptop">Laptop</option>
+                          <option value="Mobile">Mobile</option>
+                          <option value="TV">TV</option>
+                        </Form.Control></Col><Col><button className="btn btn-danger px-3" onClick={()=>this.newDomainButtonHandler(engineer.employeeId)} type="submit"> &nbsp;&nbsp;Update&nbsp;&nbsp;</button></Col>
+                      </Form.Row>
                     </td>
                   </tr>
                 ))}

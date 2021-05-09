@@ -30,4 +30,5 @@ public interface AdminServiceInterface {
 	List<Complaint> getAllComplaintsService();
 	List<Complaint> getAllOpenComplaintsService();
 	List<Product> getAllProducts();
+	List<Engineer> getEngineerByDomainService(String domain);
 }

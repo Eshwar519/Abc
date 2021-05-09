@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import ProductService from "../services/ProductService";
 import Navigation from "./Navigation";
+const divStyle = {
+    backgroundImage: "url(/bg4.jpg)",
+    backgroundSize: "cover",
+    backgroundAttachment: 'fixed'
+  };
 class AddProduct extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +20,7 @@ class AddProduct extends Component {
   }
   componentDidMount() {}
   getTitle() {
-    return "Add Product";
+    return "Product Details";
   }
 
   addProduct = (event) => {
@@ -69,23 +74,22 @@ class AddProduct extends Component {
 
   render() {
     return (
-      <div>
+      <div style={divStyle}> 
           <Navigation/>
         <br></br>
-        <div className="container">
-          <div className="row">
+            <div className="container">
             <div
-              style={{ backgroundColor: "#F2FEFF" }}
-              className=" card col-md-6 offset-md-3 offset-md-3"
+              style={{ backgroundColor: "black", color:"white", fontWeight:"bold", fontSize:"25", opacity:0.8}}
+              className=" card col-md-6 mx-auto my-auto"
             >
               <center> {this.getTitle()}</center>
               <div className="card-body">
-                <form onSubmit={this.addProduct}>
+                <form onSubmit={this.addProduct} >
                   <div className="form-group">
-                    <label> ProductName </label>
+                    <label> Product Name </label>
                     <input
                       type="text"
-                      placeholder="productName"
+                      placeholder="Ex: LG Fridge"
                       name="productname"
                       title="Must contain only characters and size should be between 2 to 30"
                       className="form-control"
@@ -96,10 +100,10 @@ class AddProduct extends Component {
                   </div>
 
                   <div className="form-group">
-                    <label> ModelNumber </label>
+                    <label> Model Number </label>
                     <input
                       type="text"
-                      placeholder="modelNumber"
+                      placeholder="Ex: 342231"
                       name="modelnumber"
                       className="form-control"
                       value={this.state.modelNumber}
@@ -109,10 +113,10 @@ class AddProduct extends Component {
                   </div>
 
                   <div className="form-group">
-                    <label> ProductCategoryName </label>
+                    <label> Product Category Name </label>
                     <input
                       type="text"
-                      placeholder="categoryName"
+                      placeholder="Ex: Fridge"
                       name="categoryname"
                       title="Must contain only characters and size should be between 2 to 30"
                       className="form-control"
@@ -122,11 +126,11 @@ class AddProduct extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label> WarrentyYear </label>
+                    <label> Warrenty Year </label>
                     <input
                       type="text"
-                      placeholder="year"
-                      name="warrantyyear"
+                      placeholder="Ex: 4"
+                      name="years"
                       className="form-control"
                       value={this.state.warrantyYear}
                       onChange={this.changeWarrantyYearHandler}
@@ -134,11 +138,11 @@ class AddProduct extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label> WarrantyDate </label>
+                    <label> Warranty Date </label>
                     <input
                       type="text"
-                      placeholder="date"
-                      name="warrantydate"
+                      placeholder="Ex: yyyy-mm-dd"
+                      name="date"
                       title="Must contain only characters and size should be between 2 to 30"
                       className="form-control"
                       value={this.state.warrantyDate}
@@ -147,10 +151,10 @@ class AddProduct extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label> DateOfPurchase </label>
+                    <label> Date Of Purchase </label>
                     <input
                       type="text"
-                      placeholder="purchaseDate"
+                      placeholder="Ex: yyyy-mm-dd"
                       name="purchasedate"
                       title="Must contain only characters and size should be between 2 to 30"
                       className="form-control"
@@ -178,9 +182,11 @@ class AddProduct extends Component {
                 </form>
               </div>
             </div>
+            </div>
+            <br/><br/><br/>
           </div>
-        </div>
-      </div>
+
+
     );
   }
 }
