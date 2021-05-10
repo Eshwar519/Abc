@@ -26,14 +26,15 @@ export class Navigation extends Component {
                         <NavDropdown id="basic-nav-dropdown">
                             <NavDropdown.Item href="/homepage-engineer">Home</NavDropdown.Item>
                             <NavDropdown.Item href="/engineer-profile">My Profile</NavDropdown.Item>
-                            <NavDropdown.Item href="/change-status">My Complaints</NavDropdown.Item>
+                        
                             <NavDropdown.Divider />
                             <NavDropdown.Item onClick={this.logout.bind(this)} href="/">Logout</NavDropdown.Item>
                           </NavDropdown>
                         <Nav className="mr-auto">
                            <Nav.Link href="/homepage-engineer">Home</Nav.Link>
+                           <Nav.Link href="https://www.covid19india.org/">COVID 19 Updates</Nav.Link>
                            <Nav.Link href="/engineer-profile">My Profile</Nav.Link>
-                           <Nav.Link href="/change-status">My Complaints</Nav.Link>
+                          
                         </Nav>
                         <Form inline>
                           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -57,6 +58,7 @@ export class Navigation extends Component {
                             <Nav className="mr-auto">
                                <Nav.Link href="/homepage-client">Home</Nav.Link>
                                <Nav.Link href="/client-profile">My Profile</Nav.Link>
+                               <Nav.Link href="https://www.covid19india.org/">COVID 19 Updates</Nav.Link>
                                <Nav.Link href="/change-status">My Complaints</Nav.Link>
                             </Nav>
                             <Form inline>
@@ -72,12 +74,14 @@ export class Navigation extends Component {
                             <Navbar.Brand className="pl-4" href="/homepage-admin"><img src="/abc.png" height="25" width="45"/></Navbar.Brand>
                             <NavDropdown id="basic-nav-dropdown">
                                 <NavDropdown.Item href="/homepage-admin">Home</NavDropdown.Item>
+                                
                                 <NavDropdown.Item href="/admin-profile">My Profile</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="/" onClick={this.logout.bind(this)}>Logout</NavDropdown.Item>
                               </NavDropdown>
                             <Nav className="mr-auto">
                                <Nav.Link href="/homepage-admin">Home</Nav.Link>
+                               <Nav.Link href="https://www.covid19india.org/">COVID 19 Updates</Nav.Link>
                                <Nav.Link href="/admin-profile">My Profile</Nav.Link>
                             </Nav>
                             <Form inline>

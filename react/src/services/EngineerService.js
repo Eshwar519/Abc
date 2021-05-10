@@ -6,8 +6,8 @@ class EngineerService {
     getComplaintdate(employee,date){
         return axios.post(BASE_URL+"getResolvedComplaintsByDate/"+date,employee);
     }
-    getEngineerComplaints(engineer,status){
-        return axios.post(BASE_URL+"getAllOpenComplaints/"+status,engineer);
+    getEngineerComplaints(engineer){
+        return axios.post(BASE_URL+"getAllOpenComplaints/Open",engineer);
     }
     getResolvedComplaints(engineer){
         return axios.get(BASE_URL+"getResolvedComplaints",engineer);
