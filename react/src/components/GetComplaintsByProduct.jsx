@@ -33,7 +33,7 @@ class GetComplaintsByProduct extends Component {
     return (
       <div style={divStyle}>
         <Navigation />
-        <div className="container" >
+        <div className="container">
           <h2 className="text-center mt-4 text-dark" style={{fontFamily:'Georgia, serif', fontWeight: 'bold'}}>Complaints By Products</h2>
           <div className="row justify-content-center my-4">
           <select
