@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from 'react-router-dom';
 import LoginService from '../services/LoginService';
 import Header from './Header';
+import {Card} from 'react-bootstrap'
 
 const divStyle = {
   paddingBottom:'80px',
@@ -114,7 +115,7 @@ class LoginPage extends Component {
               <Header />
               <div className="container pt-5 mt-3">
           <div className="row ">
-            <div style={{ backgroundColor: '#000117', opacity: 0.8 }} className="card col-md-6 mx-auto text-white">
+            <Card border="primary" style={{ backgroundColor: 'white', opacity: 0.8 }} className="card col-md-6 mx-auto text-dark">
               <h2 className="text-center font-weight-bold">Login</h2>
               <hr></hr>
               <div className="card-body">
@@ -139,7 +140,7 @@ class LoginPage extends Component {
                   </div>
 
                   <div className="">
-                    <button className="btn btn-outline-warning btn btn-lg btn-block" type="submit" onClick={this.loginUser}>
+                    <button className="btn btn-outline-primary btn btn-lg btn-block" type="submit" onClick={this.loginUser}>
                       Login
                     </button>
                   </div>
@@ -158,7 +159,7 @@ class LoginPage extends Component {
                   </div>
                 </form>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
             </div>

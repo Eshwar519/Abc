@@ -6,12 +6,12 @@ import ComplaintService from "../services/ComplaintService";
 
 const divStyle = {
   paddingBottom:'80px',
-  backgroundImage: "url(/bg-12.jpg)",
+  backgroundImage: "url(/bg-17.jpg)",
   backgroundSize: "contain",
   backgroundAttached: "fixed"
 };
 
-const cardStyle={ opacity: 0.8, fontWeight: "bold", fontSize: 18, backgroundColor:'black', color:'white'}
+const cardStyle={ opacity: 0.8, fontWeight: "bold", fontSize: 18, backgroundColor:'#04012b', color:'white'}
 
 class HomePageAdmin extends Component {
   constructor(props) {
@@ -69,7 +69,7 @@ class HomePageAdmin extends Component {
               <Card style={cardStyle} border="danger" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;Total Complaints</p><p className="mt-2" style={{fontSize:80, color: 'red'}}>{this.state.complaints.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;Total Complaints</p><p   style={{fontSize:80, color: 'red'}}>{this.state.complaints.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
@@ -77,7 +77,7 @@ class HomePageAdmin extends Component {
               <Card style={cardStyle} border="warning" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;Open Complaints&nbsp;</p><p className="mt-2" style={{fontSize:80, color: '#edd900'}}>{this.state.openc.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;Open Complaints&nbsp;</p><p   style={{fontSize:80, color: '#edd900'}}>{this.state.openc.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
@@ -85,7 +85,7 @@ class HomePageAdmin extends Component {
               <Card style={cardStyle} border="success" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>Closed Complaints</p><p className="mt-2" style={{fontSize:80, color: 'green'}}>{this.state.complaints.length-this.state.openc.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>Closed Complaints</p><p   style={{fontSize:80, color: 'green'}}>{this.state.complaints.length-this.state.openc.length}</p>
                     </Card.Title>
                 </Card.Body>
               </Card>
@@ -93,7 +93,7 @@ class HomePageAdmin extends Component {
               <Card style={cardStyle} border="primary" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;&nbsp;&nbsp;Total Products&nbsp;&nbsp;</p> <p className="mt-2" style={{fontSize:80, color: 'blue'}}>{this.state.prods.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;&nbsp;&nbsp;Total Products&nbsp;&nbsp;</p> <p   style={{fontSize:80, color: 'blue'}}>{this.state.prods.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
@@ -101,18 +101,20 @@ class HomePageAdmin extends Component {
           </Form.Row>
           <Form.Row>
             <CardDeck className="mx-auto pt-3">
-              <a href="/addEngineer"><button className="btn btn-dark mx-2"><Card className="bg-dark px-auto border-0">
+              <div className="d-flex bd-highlight example-parent mt-4">
+              <a href="/addEngineer"><button className="btn btn-info mx-2 p-2 flex-fill bd-highlight col-example"><Card className="bg-info px-auto border-0">
               <Card.Body><Card.Title>
               <p  style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>Manage Engineers</p></Card.Title></Card.Body>
               </Card></button></a>
-              <a href="/addProduct"><button className="btn btn-dark mx-2"><Card className="bg-dark px-auto  border-0">
+              <a href="/addProduct"><button className="btn btn-info mx-2 p-2 flex-fill bd-highlight col-example"><Card className="bg-info px-auto  border-0">
               <Card.Body><Card.Title>
               <p  style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>Manage Products</p></Card.Title></Card.Body>
               </Card></button></a>
-              <a href="/addProduct"><button className="btn btn-dark mx-2"><Card className="bg-dark px-auto  border-0">
+              <a href="/addProduct"><button className="btn btn-info mx-2 p-2 flex-fill bd-highlight col-example"><Card className="bg-info px-auto  border-0">
               <Card.Body><Card.Title>
               <p  style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>Manage Products</p></Card.Title></Card.Body>
               </Card></button></a>
+              </div>
             </CardDeck>
           </Form.Row>
 
