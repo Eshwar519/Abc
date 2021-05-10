@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import AdminService from "../services/AdminService";
 import Navigation from "./Navigation";
 import { Card,Form,Col} from "react-bootstrap"
+import ViewProductByCategory from "./ViewProductByCategory";
 
 const divStyle = {
   paddingBottom:'80px',
@@ -225,6 +226,7 @@ class AddEngineer extends Component {
               </tbody>
             </table>
         </div>
+        
       </div>
     );
   }
