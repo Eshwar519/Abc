@@ -10,6 +10,10 @@ class ProductService {
     addProduct(product){
         return axios.post(BASE_URL+"addProduct/",product);
     }
+
+    updateWarrentyDate(modelNumber){
+        return axios.put(BASE_URL+'updateProductWarranty/'+modelNumber)
+    }
 }
 
 export default new ProductService();

@@ -18,6 +18,12 @@ class AddEngineer extends Component {
       domain: "",
       engineers:[]
     };
+    this.changeDomainHandler=this.changeDomainHandler.bind(this);
+    this.addEngineer=this.addEngineer.bind(this);
+    this.cancel=this.cancel.bind(this);
+    this.newDomainHandler=this.newDomainHandler.bind(this);
+    this.newDomainButtonHandler=this.newDomainButtonHandler.bind(this);
+    this.engineerDomainHandler=this.engineerDomainHandler.bind(this);
   }
 
   addEngineer = (event) => {
@@ -52,8 +58,7 @@ class AddEngineer extends Component {
   changeDomainHandler = (event) => {
     this.setState({ domain: event.target.value });
   };
-  engineerDomainHandler =(event) =>{
-    event.preventDefault()
+  engineerDomainHandler=(event)=> {
     this.setState({
       domain1: event.target.value
     })
@@ -74,6 +79,7 @@ class AddEngineer extends Component {
     AdminService.changeEngineerDomain(employeeId,this.state.newDomain).then((res)=>{
       alert("Engineer Domain Changed to "+this.state.newDomain + " Successfully")
     })
+    window.location.reload(false);
   }
 
   render() {
@@ -123,7 +129,7 @@ class AddEngineer extends Component {
                       className="form-control"
                       title="enter engineer domain"
                       value={this.state.domain}
-                      onChange={this.changeDomainHandler}
+                      onChange={this.changeDomainHandler.bind(this)}
                       required
                     >
                       <option value=" " selected>Select Domain</option>
@@ -156,16 +162,16 @@ class AddEngineer extends Component {
         <div style={{ opacity: 0.9, fontWeight: "bold", fontSize: 18, backgroundColor:'black', color:'white'}} className="card col-md-10 mx-auto mt-5">
             <h2 className="text-white text-center">Engineers Details</h2>
         </div>
-        <div className="container">
+      <div className="container">
         <div className="form-group">
-                    <label style={{ fontWeight: "bold", fontSize: 15, color:'white', paddingTop:'30px'}}> Filter Engineers By Domain: </label>
+                    <label style={{ fontWeight: "bold", fontSize: 20, color:'white', paddingTop:'30px'}}> Filter Engineers By Domain to Change Domain: </label>
                     <select
                       placeholder="Domain"
                       name="engineerDomain"
                       className="form-control"
                       title="enter engineer domain"
                       value={this.state.domain1}
-                      onChange={this.engineerDomainHandler}
+                      onChange={this.engineerDomainHandler.bind(this)}
                       required
                     >
                       <option value=" " selected>Select Domain</option>
@@ -201,7 +207,7 @@ class AddEngineer extends Component {
                           name="engineerNewDomain"
                           className="form-control"
                           title="enter engineer domain"
-                          onChange={this.newDomainHandler}
+                          onChange={this.newDomainHandler.bind(this)}
                         >
                           <option value=" " selected>Select New Domain</option>
                           <option value="AC">AC</option>

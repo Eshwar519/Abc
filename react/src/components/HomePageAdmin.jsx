@@ -113,7 +113,7 @@ class HomePageAdmin extends Component {
               </Card></a>
               <a className="btn btn-info mx-5 " href="/addProduct"> <Card className="bg-info px-auto  border-0">
               <Card.Title style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>
-              Manage Products</Card.Title>
+              Manage Complaints</Card.Title>
               </Card></a>
               </div>
             </CardDeck>
