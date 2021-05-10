@@ -118,6 +118,10 @@ public class AdminController {
 		Complaints cp1= new Complaints(b.getComplaintId(),b.getComplaintName(),b.getStatus(),b.getEngineer().getEmployeeId(),b.getClient().getClientId(),b.getProduct().getModelNumber());
 		return cp1;
 	}
+	@GetMapping("getEngineerByDomain/{domain}")
+	public List<Engineer> getEngineerByDomain(@PathVariable("domain") String domain) {
+		return as.getEngineerByDomainService(domain);
+	}
 	
 	@PostMapping("adminSignIn")
 	public Admin adminSignIn(@RequestBody Admin a) throws InvalidCredentialsException{

@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import ClientService from "../services/ClientService";
 import ComplaintService from "../services/ComplaintService";
 import Navigation from "./Navigation";
+
+const divStyle = {
+  paddingBottom:'40px',
+  backgroundImage: "url(/adminbg.jpg)",
+  backgroundSize: "cover",
+};
 class ChangeStatusClient extends Component {
   constructor(props) {
     super(props);
@@ -38,13 +44,13 @@ class ChangeStatusClient extends Component {
 
   render() {
     return (
-      <div>
+      <div style={divStyle}>
         <Navigation/>
         <div className="container">
         <h1 className="text-center pt-4" style={{fontFamily:'Georgia, serif', fontWeight: 'bold'}}>Complaints History</h1>
         <br/>
         <div className="row">
-                    <table className="table table-hover table table-bordered mb-5">
+                    <table className="table table-hover table table-bordered mb-5 table-warning">
             <thead>
               <tr>
               <th>complaint_id</th>
@@ -65,7 +71,7 @@ class ChangeStatusClient extends Component {
                          <td> {c.engineerId}</td>
                          <td> {c.clientId}</td>
                          <td> {c.modelNumber}</td>
-                         <td>{c.status ==="Open"? (<button className="btn btn-danger px-3" onClick={()=>this.buttonHandler(c.complaintId)} type="submit"> &nbsp;Close Complaint </button>):(<button className="btn btn-outline-secondary" onClick={()=>this.buttonHandler(c.complaintId)} type="submit" disabled>Complaint Closed</button>) }</td>
+                         <td>{c.status ==="Open"? (<button className="btn btn-info px-3" onClick={()=>this.buttonHandler(c.complaintId)} type="submit"> &nbsp;Close Complaint </button>):(<button className="btn btn-outline-secondary" onClick={()=>this.buttonHandler(c.complaintId)} type="submit" disabled>Complaint Closed</button>) }</td>
                        </tr>
               
                      ))}

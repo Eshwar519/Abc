@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from 'react-router-dom';
 import LoginService from '../services/LoginService';
+import Header from './Header';
+import {Card} from 'react-bootstrap'
+
+const divStyle = {
+  paddingBottom:'80px',
+  backgroundImage: "url(/bg-8.jpg)",
+  backgroundSize: "cover",
+};
 
 class LoginPage extends Component {
     constructor(props) {
@@ -103,10 +111,11 @@ class LoginPage extends Component {
 
     render() { 
         return ( 
-            <div>
-        <div className="container pt-5 mt-3">
+            <div className="pt-5" style={divStyle}>
+              <Header />
+              <div className="container pt-5 mt-3">
           <div className="row ">
-            <div style={{ backgroundColor: '#F2FEFF' }} className="card col-md-6 offset-md-3 offset-md-3 p-3 mb-2 text-dark ">
+            <Card border="primary" style={{ backgroundColor: 'white', opacity: 0.8 }} className="card col-md-6 mx-auto text-dark">
               <h2 className="text-center font-weight-bold">Login</h2>
               <hr></hr>
               <div className="card-body">
@@ -150,10 +159,10 @@ class LoginPage extends Component {
                   </div>
                 </form>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
-      </div>
+            </div>
          );
     }
 }

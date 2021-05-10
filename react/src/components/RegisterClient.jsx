@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 import ClientService from "../services/ClientService";
+import Header from './Header';
+const divStyle = {
+  paddingBottom:'90px',
+  backgroundImage: "url(/bg-8.jpg)",
+  backgroundSize: "cover",
+};
 class RegisterClient extends Component {
   constructor(props) {
     super(props);
@@ -53,11 +59,12 @@ class RegisterClient extends Component {
 
   render() {
     return (
-      <div>
-        <br></br>
-        <div className="container">
+      <div style={divStyle}>
+        <Header />
+        <br/>
+        <div className="container mt-5">
           <div className="row">
-            <div className="card col-md-6 offset-md-3 offset-md-3">
+            <div className="card col-md-6 mx-auto mt-5 text-white" style={{ backgroundColor: '#290123', opacity: 0.8 }}>
               <h3 className="text-center">Client Registration Form</h3>
               <div className="card-body">
                 <form onSubmit={this.registerClient}>
@@ -118,11 +125,11 @@ class RegisterClient extends Component {
                     />
                   </div>
 
-                  <button className="btn btn-outline-success" type="submit">
+                  <button className="btn btn-success" type="submit">
                     Submit
                   </button>
                   <button
-                    className="btn btn-outline-danger"
+                    className="btn btn-danger"
                     onClick={this.cancel.bind(this)}
                     style={{ marginLeft: "10px" }}
                   >

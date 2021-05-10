@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import AdminService from "../services/AdminService";
 import Navigation from "./Navigation";
-import { Card, CardDeck } from "react-bootstrap";
+import { Card, CardDeck, Form } from "react-bootstrap";
 import ComplaintService from "../services/ComplaintService";
 
 const divStyle = {
-  width: '100%',
-  height: "100vh",
-  backgroundImage: "url(/bg5.jpg)",
-  backgroundSize: "cover",
-  backgroundRepeat: 'no-repeat',
-  backgroundAttachment: 'fixed'
+  paddingBottom:'80px',
+  backgroundImage: "url(/bg-17.jpg)",
+  backgroundSize: "contain",
+  backgroundAttached: "fixed"
 };
+
+const cardStyle={ opacity: 0.8, fontWeight: "bold", fontSize: 18, backgroundColor:'#04012b', color:'white'}
 
 class HomePageAdmin extends Component {
   constructor(props) {
@@ -62,79 +62,67 @@ class HomePageAdmin extends Component {
       
       <div style={divStyle}> 
         <Navigation />
-        <div className="row pt-3">
-          <div className="col-4 ml-2">
-            <CardDeck>
-              <Card border="danger"  >
+        
+          <Form.Row className="d-flex bd-highlight example-parent mt-4">
+            <CardDeck className="mx-auto">
+               
+              <Card style={cardStyle} border="danger" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:18, color: ' black', fontWeight: 'bold'}}>Total Complaints</p><p className="mt-2" style={{fontSize:65, color: 'red'}}>{this.state.complaints.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;Total Complaints</p><p   style={{fontSize:80, color: 'red'}}>{this.state.complaints.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
-              <Card border="warning"  >
+               
+              <Card style={cardStyle} border="warning" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:18, color: ' black', fontWeight: 'bold'}}>Open Complaints</p><p className="mt-2" style={{fontSize:65, color: 'yellow'}}>{this.state.openc.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;Open Complaints&nbsp;</p><p   style={{fontSize:80, color: '#edd900'}}>{this.state.openc.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
-            </CardDeck>
-            <br />
-            <CardDeck>
-              <Card border="success"  >
+               
+              <Card style={cardStyle} border="success" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:18, color: ' black', fontWeight: 'bold'}}>Closed Complaints</p><p className="mt-2" style={{fontSize:65, color: 'green'}}>{this.state.complaints.length-this.state.openc.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>Closed Complaints</p><p   style={{fontSize:80, color: 'green'}}>{this.state.complaints.length-this.state.openc.length}</p>
                     </Card.Title>
                 </Card.Body>
               </Card>
-              <Card border="primary"  >
+               
+              <Card style={cardStyle} border="primary" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:18, color: ' black', fontWeight: 'bold'}}>Total Products</p> <p className="mt-2" style={{fontSize:65, color: 'blue'}}>{this.state.prods.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;&nbsp;&nbsp;Total Products&nbsp;&nbsp;</p> <p   style={{fontSize:80, color: 'blue'}}>{this.state.prods.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
             </CardDeck>
-          </div>
-          <div className="col-7 ml-5">
-            <CardDeck>
-              <a href="/addEngineer"><button className="btn btn-info ml-5 mr-5"><Card className="bg-info px-auto border-0">
+          </Form.Row>
+          <Form.Row>
+            <CardDeck className="mx-auto pt-3">
+              <div className="d-flex bd-highlight example-parent mt-4">
+              <a href="/addEngineer"><button className="btn btn-info mx-2 p-2 flex-fill bd-highlight col-example"><Card className="bg-info px-auto border-0">
               <Card.Body><Card.Title>
               <p  style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>Manage Engineers</p></Card.Title></Card.Body>
               </Card></button></a>
-              <a href="/addProduct"><button className="btn btn-info ml-5"><Card className="bg-info px-auto  border-0">
+              <a href="/addProduct"><button className="btn btn-info mx-2 p-2 flex-fill bd-highlight col-example"><Card className="bg-info px-auto  border-0">
               <Card.Body><Card.Title>
               <p  style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>Manage Products</p></Card.Title></Card.Body>
               </Card></button></a>
-               {/* <Card >
-                <Card.Body>
-                  <Card.Title>Card title</Card.Title>
-                  <Card.Text>Card Text Here</Card.Text>
-                </Card.Body>
-              </Card>
-
-              <Card>
-                <Card.Body>
-                  <Card.Title>Total Complaints</Card.Title>
-                  <Card.Text>Card Text</Card.Text>
-                </Card.Body>
-              </Card>
-              <Card>
-                <Card.Body>
-                  <Card.Title> Total Products </Card.Title>
-                  <Card.Text></Card.Text>
-                </Card.Body>
-              </Card> */}
+              <a href="/addProduct"><button className="btn btn-info mx-2 p-2 flex-fill bd-highlight col-example"><Card className="bg-info px-auto  border-0">
+              <Card.Body><Card.Title>
+              <p  style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>Manage Products</p></Card.Title></Card.Body>
+              </Card></button></a>
+              </div>
             </CardDeck>
+          </Form.Row>
+
+          <div style={{ opacity: 0.9, fontWeight: "bold", fontSize: 18, backgroundColor:'black', color:'white'}} className="card col-md-12 mx-auto my-4">
+            <h2 className="text- black text-center py-2">Complaints Registered</h2>
           </div>
-        </div>
-        <div className="row mt-3">
-          <div className="container-fluid bg-info my-3">
-            <h2 className="text- black text-center">Complaints Registered</h2>
-          </div>
-          <table className="table table-hover table-dark table-bordered mx-3">
+          <div className="container-fluid">
+          <table className="table table-hover table-primary table-bordered ml-2 mr-5">
               <thead>
                 <tr>
                   <th>complaint_id</th>
