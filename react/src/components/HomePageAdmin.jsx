@@ -6,7 +6,7 @@ import ComplaintService from "../services/ComplaintService";
 
 const divStyle = {
   paddingBottom:'80px',
-  backgroundImage: "url(/bg-9.jpg)",
+  backgroundImage: "url(/bg-6.jpg)",
   backgroundSize: "contain",
   backgroundAttached: "fixed"
 };
