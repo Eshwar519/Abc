@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProductService from "../services/ProductService";
 import Navigation from "./Navigation";
+import ViewProductByCategory from "./ViewProductByCategory";
 const divStyle = {
     backgroundImage: "url(/bg4.jpg)",
     backgroundSize: "cover",
@@ -184,7 +185,9 @@ class AddProduct extends Component {
               </div>
             </div>
             </div>
-            <br/><br/><br/>
+            <br/><br/>
+            <ViewProductByCategory/>
+            <br/><br/>
           </div>
 
 

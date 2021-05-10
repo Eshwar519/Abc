@@ -71,8 +71,7 @@ class BookComplaint extends Component {
     console.log(JSON.stringify(complaint));
     ComplaintService.bookComplaints(complaint).then((res) => {
       alert("Complaint Registered successfully");
-      console.log(res);
-      this.props.history.push(`/homepage-client/${this.state.client.clientId}`);
+      this.props.history.push(`/change-status`);
     });
   };
 

@@ -19,6 +19,7 @@ import AddEngineer from './components/AddEngineer';
 import RegisterClient from './components/RegisterClient';
 import AddProduct from './components/AddProduct';
 import GetComplaintsByDate from './components/GetComplaintsByDate';
+import ViewProductByCategory from './components/ViewProductByCategory';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/registerClient" component={RegisterClient}></Route>
         <Route path="/addProduct" component={AddProduct}></Route>
         <Route path="/complaintsByDate" component={GetComplaintsByDate}></Route>
+        <Route path="/productByCategory" component={ViewProductByCategory}></Route>
         <Route component={NotFound} />
       </Switch>
       </div>
