@@ -77,6 +77,7 @@ class AddProduct extends Component {
       <div style={divStyle}> 
           <Navigation/>
         <br></br>
+            
             <div className="container">
             <div
               style={{ backgroundColor: "black", color:"white", fontWeight:"bold", fontSize:"25", opacity:0.8}}
