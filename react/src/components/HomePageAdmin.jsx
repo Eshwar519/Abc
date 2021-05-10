@@ -6,12 +6,12 @@ import ComplaintService from "../services/ComplaintService";
 
 const divStyle = {
   paddingBottom:'80px',
-  backgroundImage: "url(/bg-17.jpg)",
+  backgroundImage: "url(/bg-9.jpg)",
   backgroundSize: "contain",
   backgroundAttached: "fixed"
 };
 
-const cardStyle={ opacity: 0.8, fontWeight: "bold", fontSize: 18, backgroundColor:'#04012b', color:'white'}
+const cardStyle={ opacity: 0.8, fontWeight: "bold", fontSize: 18, backgroundColor:'white', color:'black'}
 
 class HomePageAdmin extends Component {
   constructor(props) {
@@ -62,14 +62,14 @@ class HomePageAdmin extends Component {
       
       <div style={divStyle}> 
         <Navigation />
-        
+        <div className="card text-center" style={{opacity: 0.9, fontWeight: "bold", fontSize: 30, backgroundColor:'black', color:'white'}}><span><img src="/abc.png" height="30" width="60"/> &nbsp;Electronics Complaints Statistics</span></div>
           <Form.Row className="d-flex bd-highlight example-parent mt-4">
             <CardDeck className="mx-auto">
                
               <Card style={cardStyle} border="danger" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;Total Complaints</p><p   style={{fontSize:80, color: 'red'}}>{this.state.complaints.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold', paddingLeft: '23px', paddingRight:'23px'}}>Total Complaints</p><p style={{  fontSize:50, color: 'red'}}>{this.state.complaints.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
@@ -77,7 +77,7 @@ class HomePageAdmin extends Component {
               <Card style={cardStyle} border="warning" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;Open Complaints&nbsp;</p><p   style={{fontSize:80, color: '#edd900'}}>{this.state.openc.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold', paddingLeft: '23px', paddingRight:'23px'}}>Open Complaints</p><p style={{  fontSize:50, color: '#edd900'}}>{this.state.openc.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
@@ -85,7 +85,7 @@ class HomePageAdmin extends Component {
               <Card style={cardStyle} border="success" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>Closed Complaints</p><p   style={{fontSize:80, color: 'green'}}>{this.state.complaints.length-this.state.openc.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold', paddingLeft: '23px', paddingRight:'23px'}}>Closed Complaints</p><p style={{  fontSize:50, color: 'green'}}>{this.state.complaints.length-this.state.openc.length}</p>
                     </Card.Title>
                 </Card.Body>
               </Card>
@@ -93,36 +93,37 @@ class HomePageAdmin extends Component {
               <Card style={cardStyle} border="primary" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;&nbsp;&nbsp;Total Products&nbsp;&nbsp;</p> <p   style={{fontSize:80, color: 'blue'}}>{this.state.prods.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold', paddingLeft: '28px', paddingRight:'28px'}}>Total Products</p><p style={{  fontSize:50, color: 'blue'}}>{this.state.prods.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
             </CardDeck>
           </Form.Row>
+          <div className="card text-center mt-5" style={{opacity: 0.9, fontWeight: "bold", fontSize: 30, backgroundColor:'black', color:'white'}}>Admin Operations</div>
           <Form.Row>
-            <CardDeck className="mx-auto pt-3">
-              <div className="d-flex bd-highlight example-parent mt-4">
-              <a href="/addEngineer"><button className="btn btn-info mx-2 p-2 flex-fill bd-highlight col-example"><Card className="bg-info px-auto border-0">
-              <Card.Body><Card.Title>
-              <p  style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>Manage Engineers</p></Card.Title></Card.Body>
-              </Card></button></a>
-              <a href="/addProduct"><button className="btn btn-info mx-2 p-2 flex-fill bd-highlight col-example"><Card className="bg-info px-auto  border-0">
-              <Card.Body><Card.Title>
-              <p  style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>Manage Products</p></Card.Title></Card.Body>
-              </Card></button></a>
-              <a href="/addProduct"><button className="btn btn-info mx-2 p-2 flex-fill bd-highlight col-example"><Card className="bg-info px-auto  border-0">
-              <Card.Body><Card.Title>
-              <p  style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>Manage Products</p></Card.Title></Card.Body>
-              </Card></button></a>
+            <CardDeck className=" pt-2 mx-auto">
+              <div className="d-flex bd-highlight example-parent mt-4 ">
+              <a className="btn btn-info mx-5 " href="/addEngineer"> <Card className="bg-info px-auto border-0">
+              <Card.Title style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>
+              Manage Engineers</Card.Title>
+              </Card></a>
+              <a className="btn btn-info mx-5 " href="/addProduct"> <Card className="bg-info px-auto  border-0">
+              <Card.Title style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>
+              Manage Products</Card.Title>
+              </Card></a>
+              <a className="btn btn-info mx-5 " href="/addProduct"> <Card className="bg-info px-auto  border-0">
+              <Card.Title style={{fontSize:20, color: ' white', fontWeight: 'bold'}}>
+              Manage Products</Card.Title>
+              </Card></a>
               </div>
             </CardDeck>
           </Form.Row>
 
-          <div style={{ opacity: 0.9, fontWeight: "bold", fontSize: 18, backgroundColor:'black', color:'white'}} className="card col-md-12 mx-auto my-4">
-            <h2 className="text- black text-center py-2">Complaints Registered</h2>
+          <div style={{ opacity: 0.9, fontWeight: "bold", fontSize: 30, backgroundColor:'black', color:'white'}} className="card mt-5 mb-2 text-center">
+            Complaints Registered
           </div>
           <div className="container-fluid">
-          <table className="table table-hover table-primary table-bordered ml-2 mr-5">
+          <table className="table table-hover table-secondary table-bordered ml-2 mr-5">
               <thead>
                 <tr>
                   <th>complaint_id</th>
@@ -146,7 +147,7 @@ class HomePageAdmin extends Component {
                     <td>
                       {c.status === "Open" ? (
                         <button
-                          className="btn btn-danger px-3"
+                          className="btn btn-primary px-3"
                           onClick={() => this.buttonHandler(c.complaintId)}
                           type="submit"
                         >

@@ -115,7 +115,7 @@ class LoginPage extends Component {
               <Header />
               <div className="container pt-5 mt-3">
           <div className="row ">
-            <Card border="primary" style={{ backgroundColor: 'white', opacity: 0.8 }} className="card col-md-6 mx-auto text-dark">
+            <Card border="primary" style={{ backgroundColor: '#f0f3ff', opacity: 0.8 }} className="card col-md-6 mx-auto text-dark">
               <h2 className="text-center font-weight-bold">Login</h2>
               <hr></hr>
               <div className="card-body">

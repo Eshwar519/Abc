@@ -36,11 +36,11 @@ function App() {
         <Route path="/engineer-profile" component={ViewEngineerProfile}></Route>
         <Route path="/admin-profile" component={ViewAdminProfile}></Route>
         <Route path="/client-update" component={UpdateClient}></Route>
-        <Route path="/complaint_by_product" component={GetComplaintsByProduct}></Route>
+        <Route path="/complaintsByProduct" component={GetComplaintsByProduct}></Route>
         <Route path="/addEngineer" component={AddEngineer}></Route>
         <Route path="/registerClient" component={RegisterClient}></Route>
         <Route path="/addProduct" component={AddProduct}></Route>
-        <Route path="/productsByDate" component={GetComplaintsByDate}></Route>
+        <Route path="/complaintsByDate" component={GetComplaintsByDate}></Route>
         <Route component={NotFound} />
       </Switch>
       </div>
