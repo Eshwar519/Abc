@@ -81,10 +81,11 @@ class BookComplaint extends Component {
       <div  style={divStyle}>
         <Navigation/>
         <p className="pt-3"></p>
+        <br/>
         <div
-          className="card col-md-6 mx-auto  mt-5 bg-dark text-white"
+          className="card col-md-6 mx-auto  mt-5 text-white"
           border="warning"
-          style={{ opacity: 0.7, fontWeight: "bold", fontSize: 18 }}
+          style={{ opacity: 0.7, fontWeight: "bold", fontSize: 18, backgroundColor:'black'}}
         >
           <h1 className="card-title text-center text-info">
             <b>Book Complaint</b>

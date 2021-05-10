@@ -3,6 +3,12 @@ import AdminService from "../services/AdminService";
 import Navigation from "./Navigation";
 import { Card,Form,Col} from "react-bootstrap"
 
+const divStyle = {
+  paddingBottom:'80px',
+  backgroundImage: "url(/bg-13.jpg)",
+  backgroundSize: "cover",
+}
+
 class AddEngineer extends Component {
   constructor(props) {
     super(props);
@@ -72,12 +78,12 @@ class AddEngineer extends Component {
 
   render() {
     return (
-      <div>
+      <div style={divStyle}>
         <Navigation/>
         <br></br>
         <div className="container">
           <div className="row">
-            <Card className="col-md-6 offset-md-3 offset-md-3" border="dark">
+            <Card style={{ opacity: 0.8, fontWeight: "bold", fontSize: 18, backgroundColor:'#020017', color:'white'}} className="col-md-6 mx-auto" border="dark">
               <h3 className="text-center">Add Engineer</h3>
               <div className="card-body">
                 <form onSubmit={this.addEngineer}>
@@ -131,11 +137,11 @@ class AddEngineer extends Component {
                     </select>
                   </div>
 
-                  <button className="btn btn-outline-success align-self-center" type="submit">
+                  <button className="btn btn-success align-self-center" type="submit">
                     Submit
                   </button>
                   <button
-                    className="btn btn-outline-danger"
+                    className="btn btn-danger"
                     onClick={this.cancel.bind(this)}
                     style={{ marginLeft: "10px" }}
                   >
@@ -147,12 +153,12 @@ class AddEngineer extends Component {
           </div>
         </div>
         
-        <div className="container-fluid bg-dark my-3">
+        <div style={{ opacity: 0.9, fontWeight: "bold", fontSize: 18, backgroundColor:'black', color:'white'}} className="card col-md-10 mx-auto mt-5">
             <h2 className="text-white text-center">Engineers Details</h2>
         </div>
         <div className="container">
         <div className="form-group">
-                    <label className="font-weight-bold"> Filter Engineers By Domain: </label>
+                    <label style={{ fontWeight: "bold", fontSize: 15, color:'white', paddingTop:'30px'}}> Filter Engineers By Domain: </label>
                     <select
                       placeholder="Domain"
                       name="engineerDomain"

@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import ClientService from "../services/ClientService";
 import Navigation from "./Navigation";
+
+const divStyle = {
+  width: '100%',
+  height: "100vh",
+  paddingBottom:'120px',
+  backgroundImage: "url(/bg3.jpg)",
+  backgroundSize: "cover",
+  backgroundRepeat: 'no-repeat'
+};
 class UpdateClient extends Component {
   constructor(props) {
     super(props);
@@ -22,13 +31,12 @@ class UpdateClient extends Component {
       address: this.state.address,
     };
 
-    console.log(client);
     ClientService.saveClient(client).then((res) => {
       this.setState({ updatestatus: res.data });
-      if (this.state.updatestatus === "Client Saved Successfully") {
+        sessionStorage.setItem('phone',this.state.phoneNumber)
+        sessionStorage.setItem('address',this.state.address)
         alert("Profile updated successfully");
-        window.location.reload(false);
-      }
+        this.props.history.push("/client-profile");
     });
   };
   changePasswordHandler = (event) => {
@@ -43,16 +51,16 @@ class UpdateClient extends Component {
   };
 
   cancel() {
-    this.props.history.push(`/mainpage-customer/${this.state.id}`);
+    this.props.history.push("/client-profile");
   }
 
   render() {
     return (
-      <div>
+      <div style={divStyle}>
         <Navigation/>
         <div className="container pt-5">
           <div className="row">
-            <div className="card col-md-6 offset-md-3 offset-md-3">
+            <div style={{ opacity: 0.7, fontWeight: "bold", fontSize: 18, backgroundColor:'black', color:'white'}} className="card col-md-6 mx-auto">
               <h3 className="text-center">Update Profile</h3>
               <div className="card-body">
                 <form onSubmit={this.updateClient}>

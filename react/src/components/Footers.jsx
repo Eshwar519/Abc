@@ -9,12 +9,10 @@ class Footers extends Component {
 
   render() {
     return (
-      <div>
         <footer style={{ backgroundColor: 'black' }} className="footer fixed-bottom">
 
               <p className="text-center text-light">Copyright © 2021 ABC Electronics. All rights reserved.</p>
         </footer>
-      </div>
     );
   }
 }

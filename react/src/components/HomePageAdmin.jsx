@@ -5,12 +5,13 @@ import { Card, CardDeck, Form } from "react-bootstrap";
 import ComplaintService from "../services/ComplaintService";
 
 const divStyle = {
-  backgroundImage: "url(/adminbg.jpg)",
+  paddingBottom:'80px',
+  backgroundImage: "url(/bg-12.jpg)",
   backgroundSize: "contain",
   backgroundAttached: "fixed"
 };
 
-
+const cardStyle={ opacity: 0.8, fontWeight: "bold", fontSize: 18, backgroundColor:'black', color:'white'}
 
 class HomePageAdmin extends Component {
   constructor(props) {
@@ -65,34 +66,34 @@ class HomePageAdmin extends Component {
           <Form.Row className="d-flex bd-highlight example-parent mt-4">
             <CardDeck className="mx-auto">
                
-              <Card border="danger" className="p-2 flex-fill bd-highlight col-example">
+              <Card style={cardStyle} border="danger" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:25, color: ' black', fontWeight: 'bold'}}>&nbsp;Total Complaints</p><p className="mt-2" style={{fontSize:80, color: 'red'}}>{this.state.complaints.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;Total Complaints</p><p className="mt-2" style={{fontSize:80, color: 'red'}}>{this.state.complaints.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
                
-              <Card border="warning" className="p-2 flex-fill bd-highlight col-example">
+              <Card style={cardStyle} border="warning" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:25, color: ' black', fontWeight: 'bold'}}>&nbsp;Open Complaints&nbsp;</p><p className="mt-2" style={{fontSize:80, color: '#edd900'}}>{this.state.openc.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;Open Complaints&nbsp;</p><p className="mt-2" style={{fontSize:80, color: '#edd900'}}>{this.state.openc.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
                
-              <Card border="success" className="p-2 flex-fill bd-highlight col-example">
+              <Card style={cardStyle} border="success" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:25, color: ' black', fontWeight: 'bold'}}>Closed Complaints</p><p className="mt-2" style={{fontSize:80, color: 'green'}}>{this.state.complaints.length-this.state.openc.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>Closed Complaints</p><p className="mt-2" style={{fontSize:80, color: 'green'}}>{this.state.complaints.length-this.state.openc.length}</p>
                     </Card.Title>
                 </Card.Body>
               </Card>
                
-              <Card border="primary" className="p-2 flex-fill bd-highlight col-example">
+              <Card style={cardStyle} border="primary" className="p-2 flex-fill bd-highlight col-example">
                 <Card.Body>
                   <Card.Title className="text-center">
-                  <p  style={{fontSize:25, color: ' black', fontWeight: 'bold'}}>&nbsp;&nbsp;&nbsp;Total Products&nbsp;&nbsp;</p> <p className="mt-2" style={{fontSize:80, color: 'blue'}}>{this.state.prods.length}</p>
+                  <p  style={{fontSize:25,  fontWeight: 'bold'}}>&nbsp;&nbsp;&nbsp;Total Products&nbsp;&nbsp;</p> <p className="mt-2" style={{fontSize:80, color: 'blue'}}>{this.state.prods.length}</p>
                   </Card.Title>
                 </Card.Body>
               </Card>
@@ -115,7 +116,7 @@ class HomePageAdmin extends Component {
             </CardDeck>
           </Form.Row>
 
-          <div className="container-fluid bg-info my-3">
+          <div style={{ opacity: 0.9, fontWeight: "bold", fontSize: 18, backgroundColor:'black', color:'white'}} className="card col-md-12 mx-auto my-4">
             <h2 className="text- black text-center py-2">Complaints Registered</h2>
           </div>
           <div className="container-fluid">
@@ -166,7 +167,6 @@ class HomePageAdmin extends Component {
               </tbody>
             </table>
           </div>
-          <br/><br/>
       </div>
     );
   }
