@@ -123,7 +123,7 @@ class AddProduct extends Component {
                   <label> Product Category Name </label>
                   <select
                     className="form-control "
-                    onChange={this.getProducts}
+                    onChange={this.changeProductCategoryNameHandler}
                   >
                     <option defaultValue="Select Product Category">
                       {" "}
@@ -147,7 +147,7 @@ class AddProduct extends Component {
                     name="years"
                     className="form-control"
                     value={this.state.warrantyYear}
-                    onChange={this.changeProductCategoryNameHandler}
+                    onChange={this.changeWarrantyYearHandler}
                     required
                   />
                 </div>
