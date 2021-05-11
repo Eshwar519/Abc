@@ -37,11 +37,10 @@ class AddProduct extends Component {
     console.log(product);
     ProductService.addProduct(product).then((res) => {
       console.log(res);
-      this.setState({ updatestatus: res.data });
-      if(this.state.updatestatus=== "Product Added Successfully"){
-        alert(res.data);
-        console.log(res);
-        this.props.history.push(`/homepage-admin/`);
+      this.setState({ updatestatus: true });
+      if(this.state.updatestatus=== true){
+        alert('Product Added Successfully');
+        this.props.history.push(`/addProduct`);
       }else{
         alert("Something went wrong while adding the product");
       }

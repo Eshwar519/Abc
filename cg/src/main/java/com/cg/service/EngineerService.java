@@ -32,7 +32,7 @@ public class EngineerService implements EngineerServiceInterface {
 	@Override
 	public List<Complaint> getResolvedComplaintsService(Engineer e) {
 		
-		return cr.findAll().stream().filter(f->f.getEngineer().getEmployeeId()==e.getEmployeeId()&& f.getStatus().equalsIgnoreCase("Closed")).collect(Collectors.toList());
+		return cr.findAll().stream().filter(f->f.getEngineer().getEmployeeId()==e.getEmployeeId() && f.getStatus().equalsIgnoreCase("Closed")).collect(Collectors.toList());
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class EngineerService implements EngineerServiceInterface {
 	@Override
 	public Engineer engineerSignIn(Engineer e) throws InvalidCredentialsException {
 		
-Optional<Engineer> ee = er.findById(e.getEmployeeId());
+		Optional<Engineer> ee = er.findById(e.getEmployeeId());
 		
 		System.out.println("Welcome Engineer "+e.getEmployeeId()+" Sign In Successful");
 		return ee.get();
