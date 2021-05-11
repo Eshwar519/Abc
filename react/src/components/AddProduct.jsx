@@ -3,10 +3,10 @@ import ProductService from "../services/ProductService";
 import Navigation from "./Navigation";
 import ViewProductByCategory from "./ViewProductByCategory";
 const divStyle = {
-    backgroundImage: "url(/bg4.jpg)",
-    backgroundSize: "cover",
-    backgroundAttachment: 'fixed'
-  };
+  backgroundImage: "url(/bg4.jpg)",
+  backgroundSize: "cover",
+  backgroundAttachment: "fixed",
+};
 class AddProduct extends Component {
   constructor(props) {
     super(props);
@@ -38,10 +38,10 @@ class AddProduct extends Component {
     ProductService.addProduct(product).then((res) => {
       console.log(res);
       this.setState({ updatestatus: true });
-      if(this.state.updatestatus=== true){
-        alert('Product Added Successfully');
+      if (this.state.updatestatus === true) {
+        alert("Product Added Successfully");
         this.props.history.push(`/addProduct`);
-      }else{
+      } else {
         alert("Something went wrong while adding the product");
       }
     });
@@ -74,122 +74,135 @@ class AddProduct extends Component {
 
   render() {
     return (
-      <div style={divStyle}> 
-          <Navigation/>
+      <div style={divStyle}>
+        <Navigation />
         <br></br>
-            
-            <div className="container">
-            <div
-              style={{ backgroundColor: "black", color:"white", fontWeight:"bold", fontSize:"25", opacity:0.8}}
-              className=" card col-md-6 mx-auto my-auto"
-            >
-              <center> {this.getTitle()}</center>
-              <div className="card-body">
-                <form onSubmit={this.addProduct} >
-                  <div className="form-group">
-                    <label> Product Name </label>
-                    <input
-                      type="text"
-                      placeholder="Ex: LG Fridge"
-                      name="productname"
-                      title="Must contain only characters and size should be between 2 to 30"
-                      className="form-control"
-                      value={this.state.productName}
-                      onChange={this.changeProductNameHandler}
-                      required
-                    />
-                  </div>
 
-                  <div className="form-group">
-                    <label> Model Number </label>
-                    <input
-                      type="text"
-                      placeholder="Ex: 342231"
-                      name="modelnumber"
-                      className="form-control"
-                      value={this.state.modelNumber}
-                      onChange={this.changeModelNumberHandler}
-                      required
-                    />
-                  </div>
+        <div className="container">
+          <div
+            style={{
+              backgroundColor: "black",
+              color: "white",
+              fontWeight: "bold",
+              fontSize: "25",
+              opacity: 0.8,
+            }}
+            className=" card col-md-6 mx-auto my-auto"
+          >
+            <center> {this.getTitle()}</center>
+            <div className="card-body">
+              <form onSubmit={this.addProduct}>
+                <div className="form-group">
+                  <label> Product Name </label>
+                  <input
+                    type="text"
+                    placeholder="Ex: LG Fridge"
+                    name="productname"
+                    title="Must contain only characters and size should be between 2 to 30"
+                    className="form-control"
+                    value={this.state.productName}
+                    onChange={this.changeProductNameHandler}
+                    required
+                  />
+                </div>
 
-                  <div className="form-group">
-                    <label> Product Category Name </label>
-                    <input
-                      type="text"
-                      placeholder="Ex: Fridge"
-                      name="categoryname"
-                      title="Must contain only characters and size should be between 2 to 30"
-                      className="form-control"
-                      value={this.state.categoryName}
-                      onChange={this.changeProductCategoryNameHandler}
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label> Warrenty Year </label>
-                    <input
-                      type="text"
-                      placeholder="Ex: 4"
-                      name="years"
-                      className="form-control"
-                      value={this.state.warrantyYear}
-                      onChange={this.changeWarrantyYearHandler}
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label> Warranty Date </label>
-                    <input
-                      type="text"
-                      placeholder="Ex: yyyy-mm-dd"
-                      name="date"
-                      title="Must contain only characters and size should be between 2 to 30"
-                      className="form-control"
-                      value={this.state.warrantyDate}
-                      onChange={this.changeWarrantyDateHandler}
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label> Date Of Purchase </label>
-                    <input
-                      type="text"
-                      placeholder="Ex: yyyy-mm-dd"
-                      name="purchasedate"
-                      title="Must contain only characters and size should be between 2 to 30"
-                      className="form-control"
-                      value={this.state.dateOfPurchase}
-                      onChange={this.changeDateOfPurchaseHandler}
-                      required
-                    />
-                  </div>
+                <div className="form-group">
+                  <label> Model Number </label>
+                  <input
+                    type="text"
+                    placeholder="Ex: 342231"
+                    name="modelnumber"
+                    className="form-control"
+                    value={this.state.modelNumber}
+                    onChange={this.changeModelNumberHandler}
+                    required
+                  />
+                </div>
 
-                  <button
-                    className="btn btn-success"
-                    type="submit"
-                    style={{ marginLeft: "10px" }}
+                <div className="form-group">
+                  <label> Product Category Name </label>
+                  <select
+                    className="form-control "
+                    onChange={this.getProducts}
                   >
-                    ADD
-                  </button>
-                  <button
-                    className="btn btn-danger"
-                    type="button"
-                    style={{ marginLeft: "10px" }}
-                    onClick={this.cancel}
-                  >
-                    Cancel
-                  </button>
-                </form>
-              </div>
+                    <option defaultValue="Select Product Category">
+                      {" "}
+                      &nbsp;&nbsp;&nbsp;Select Product
+                      Category&nbsp;&nbsp;&nbsp;{" "}
+                    </option>
+                    <option value="AC">AC</option>
+                    <option value="Cooler">Cooler</option>
+                    <option value="FAN">FAN</option>
+                    <option value="Fridge">Fridge</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="Mobile">Mobile</option>
+                    <option value="TV">TV</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label> Warrenty Year </label>
+                  <input
+                    type="text"
+                    placeholder="Ex: 4"
+                    name="years"
+                    className="form-control"
+                    value={this.state.warrantyYear}
+                    onChange={this.changeProductCategoryNameHandler}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label> Warranty Date </label>
+                  <input
+                    type="text"
+                    placeholder="Ex: yyyy-mm-dd"
+                    name="date"
+                    title="Must contain only characters and size should be between 2 to 30"
+                    className="form-control"
+                    value={this.state.warrantyDate}
+                    onChange={this.changeWarrantyDateHandler}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label> Date Of Purchase </label>
+                  <input
+                    type="text"
+                    placeholder="Ex: yyyy-mm-dd"
+                    name="purchasedate"
+                    title="Must contain only characters and size should be between 2 to 30"
+                    className="form-control"
+                    value={this.state.dateOfPurchase}
+                    onChange={this.changeDateOfPurchaseHandler}
+                    required
+                  />
+                </div>
+
+                <button
+                  className="btn btn-success"
+                  type="submit"
+                  style={{ marginLeft: "10px" }}
+                >
+                  ADD
+                </button>
+                <button
+                  className="btn btn-danger"
+                  type="button"
+                  style={{ marginLeft: "10px" }}
+                  onClick={this.cancel}
+                >
+                  Cancel
+                </button>
+              </form>
             </div>
-            </div>
-            <br/><br/>
-            <ViewProductByCategory/>
-            <br/><br/>
           </div>
-
-
+        </div>
+        <br />
+        <br />
+        <ViewProductByCategory />
+        <br />
+        <br />
+      </div>
     );
   }
 }
